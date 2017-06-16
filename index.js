@@ -42,6 +42,12 @@ class RedshiftQuery {
     return this.queryByString(query)
   }
 
+  /**
+   * Queries a Redshift instance from the given query string
+   * @param  {String} query    Redshift query
+   * @return {Array[Row]}      Array of results (underlying library is pg so the format will be the same)
+   */
+
   queryByString(query) {
     return new Promise((resolve, reject) => {
       // Execute the query and resolve the promise accordingly
