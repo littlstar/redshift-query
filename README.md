@@ -1,12 +1,19 @@
-# redshift-query
+redshift-query
+=============
 
 Library which allows you to query Redshift using parameterized SQL files and promises.
 
-## To initialize an instance:
+## Install
+
+```bash
+npm install redshift-query --save
+```
+
+## Initialization:
 
 `connection` is your Redshift connection info. `queryPath` is where your SQL files are located at.
 
-```
+```javascript
 const RedshiftQuery = require('redshift-query')
 
 const redshift = new RedshiftQuery({
@@ -20,12 +27,13 @@ const redshift = new RedshiftQuery({
   queryPath: './sql'
 })
 ```
+## API
 
-## To query:
+### redshift#query(queryFile, parametersObj)
 
 **Warning**: Do not use raw user input as parameter input, it opens you up to [SQL injection attacks](https://en.wikipedia.org/wiki/SQL_injection).
 
-```
+```javascript
 redshift.query('count_unicorns.sql', { type: 'flying' })
   .then((stable) => {
     stable.rows.forEach((unicorn) => {
@@ -36,7 +44,7 @@ redshift.query('count_unicorns.sql', { type: 'flying' })
 
 ## SQL file example:
 
-```
+```sql
 SELECT type, name
 FROM unicorns
 WHERE type='${type}'

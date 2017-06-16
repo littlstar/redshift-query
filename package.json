@@ -1,7 +1,7 @@
 {
   "name": "redshift-query",
   "version": "1.0.0",
-  "description": "Simple library for querying Redshift",
+  "description": "Library which allows you to query Redshift using parameterized SQL files and promises",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
