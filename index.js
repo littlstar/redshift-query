@@ -13,8 +13,7 @@ class RedshiftQuery {
 
   /**
    * Initializes a RedshiftQuery class
-   * @param  {Object} config      Object that describes your Redshift connection
-   * @param  {String} queryPath   Local path to where your query files are located
+   * @param  {Object} opts   Configuration for the class
    */
 
   constructor(opts) {
