@@ -28,18 +28,22 @@ class RedshiftQuery {
    * @return {Array[Row]}       Array of results (underlying library is pg so the format will be the same)
    */
 
-  query(sqlFile, params) {
+  queryByFile(sqlFile, params) {
+    // Create a fully-qualified path to the desired file
+    const sqlPath = path.resolve(this.queryPath, sqlFile)
+
+    // Read from the file and cast it to a string
+    let query = fs.readFileSync(sqlPath).toString()
+
+    // Make the query a template string and eval it with
+    // the given parameters.
+    query = vm.runInNewContext('`' + query + '`', params)
+
+    return this.queryByString(query)
+  }
+
+  queryByString(query) {
     return new Promise((resolve, reject) => {
-      // Create a fully-qualified path to the desired file
-      const sqlPath = path.resolve(this.queryPath, sqlFile)
-
-      // Read from the file and cast it to a string
-      let query = fs.readFileSync(sqlPath).toString()
-
-      // Make the query a template string and eval it with
-      // the given parameters.
-      query = vm.runInNewContext('`' + query + '`', params)
-
       // Execute the query and resolve the promise accordingly
       this.redshift.query(query, (err, data) => {
         if (err) {

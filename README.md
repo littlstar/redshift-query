@@ -29,12 +29,25 @@ const redshift = new RedshiftQuery({
 ```
 ## API
 
-### redshift#query(queryFile, parametersObj)
+### redshift#queryByFile(queryFile, parametersObj)
 
 **Warning**: Do not use raw user input as parameter input, it opens you up to [SQL injection attacks](https://en.wikipedia.org/wiki/SQL_injection).
 
 ```javascript
-redshift.query('count_unicorns.sql', { type: 'flying' })
+redshift.queryByFile('count_unicorns.sql', { type: 'flying' })
+  .then((stable) => {
+    stable.rows.forEach((unicorn) => {
+      console.log('Name: ', unicorn.name)
+    })
+  })
+```
+
+### redshift#queryByString(queryString)
+
+**Warning**: Do not use raw user input as parameter input, it opens you up to [SQL injection attacks](https://en.wikipedia.org/wiki/SQL_injection).
+
+```javascript
+redshift.queryByString(`SELECT type, name FROM unicorns WHERE type='flying'`)
   .then((stable) => {
     stable.rows.forEach((unicorn) => {
       console.log('Name: ', unicorn.name)
