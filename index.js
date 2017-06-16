@@ -17,9 +17,9 @@ class RedshiftQuery {
    * @param  {String} queryPath   Local path to where your query files are located
    */
 
-  constructor(config, queryPath) {
-    this.queryPath = queryPath
-    this.redshift = new Redshift(config)
+  constructor(opts) {
+    this.queryPath = opts.queryPath
+    this.redshift = new Redshift(opts.connection)
   }
 
   /**
