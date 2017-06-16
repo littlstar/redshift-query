@@ -14,7 +14,7 @@
   "license": "MIT",
   "keywords": [
     "redshift",
-    "query"
+    "query",
     "parameterized redshift",
     "redshift query"
   ],
