@@ -1,6 +1,6 @@
 {
   "name": "redshift-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library which allows you to query Redshift using parameterized SQL files and promises",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,12 @@
   },
   "author": "Madeline Cameron",
   "license": "MIT",
+  "keywords": [
+    "redshift",
+    "query"
+    "parameterized redshift",
+    "redshift query"
+  ],
   "bugs": {
     "url": "https://github.com/littlstar/redshift-query/issues"
   },
