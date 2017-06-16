@@ -1,0 +1,22 @@
+{
+  "name": "redshift-query",
+  "version": "1.0.0",
+  "description": "Simple library for querying Redshift",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littlstar/redshift-query.git"
+  },
+  "author": "Madeline Cameron",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/littlstar/redshift-query/issues"
+  },
+  "homepage": "https://github.com/littlstar/redshift-query#readme",
+  "dependencies": {
+    "node-redshift": "^0.1.4"
+  }
+}
